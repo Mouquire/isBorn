@@ -1,33 +1,34 @@
+#include "serial.h"
 
-void loop()
+Serial_C::Serial_C() :
+motorNumber(NULL), 
+speed(0),
+direction(FORWARDS)
+{}
+
+void Serial_C::updateMessage ()
+
 {
-
-if (Serial.available() > 0)
-
-	String message = Serial.read();
+	String message = Serial.readStringUntil('\n');
 
 	int directionIndex = message.indexOf(' ') + 1;
 	int speedIndex = message.lastIndexOf(' ') + 1;
 
-	int motorNumber = message.substring(0, directionIndex - 1).toInt();
-	String direction = message.substring(directionIndex, speedIndex - 1).trim();
-	String speed = message.substring(speedIndex).toInt();
+	this->motorNumber = message.substring(0, directionIndex - 1).toInt();
+	String directionMessage = message.substring(directionIndex, speedIndex - 1).trim();
+	this->speed = message.substring(speedIndex).toInt();
 
+	if(directionMessage == "F")
 	
+	{ 
+		this->direction = FORWARDS;
+ 
+	}
 
-
-
-	this->ip = cache.substring(ipIndex, routeIndex - 1);
-	this->ip.trim();
-	this->route = cache.substring(routeIndex, valueIndex);
-	this->route.trim();
-	this->value = cache.substring(valueIndex).toInt();
-
-	// some little debug never hurt
-	Serial.print("OSC ");
-	Serial.print(this->ip);
-	Serial.print(" ");
-	Serial.print(this->route);
-	Serial.print(" ");
-	Serial.println(this->value);
+	else if(directionMessage == "B")
+	
+	{ 
+		this->direction = BACKWARDS;
+ 
+	}
 }
