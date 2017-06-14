@@ -43,7 +43,6 @@ void Motors_C::triggerMotion() {
 	}
 }
 
-
 // this->scaleSpeed(); // Pour Hina et Victoire : Écrire la fonction scaleSpeed qui empèche les valeurs de déborder (moteur 0 < 9 ; vitesse 0 < 100 ; direction F || B)
 // // /!\, à mettre dans serial.cpp
 
