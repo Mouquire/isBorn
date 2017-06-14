@@ -1,7 +1,7 @@
 
+#include "_init.h"
 #include "motors.h"
-
-if
+#include "serial.h"
 
 void setup() {
 
