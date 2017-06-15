@@ -5,8 +5,31 @@ Motors_C::Motors_C() :
 	motorIdToUpdate(NULL)
 {}
 
-void Motors_C::init() {
-	// Pour Victoire et Hina : Initialiser les moteurs avec pinMode
+void Motors_C::init() 
+
+{
+	int 
+	
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
+	pinMode (MOTOR0_BACKWARD_PIN, OUTPUT);
 }
 
 void Motors_C::move(Serial_& message) {
