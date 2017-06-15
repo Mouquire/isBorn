@@ -11,12 +11,14 @@ class Serial_C
 {
 
 public: 
-void updateMessage();
-Serial_C ();
+void receive();
+Serial_C();
 
 private:
 int motorNumber;
 int speed;
+void mapValues();
+
 
 }
 
