@@ -16,7 +16,6 @@ Serial_C ();
 
 private:
 int motorNumber;
-bool direction;
 int speed;
 
 }
