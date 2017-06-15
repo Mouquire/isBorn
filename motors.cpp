@@ -31,12 +31,12 @@ void Motors_C::init()
 	pinMode (MOTOR9_BACKWARD_PIN, OUTPUT);
 }
 
-void Motors_C::move(Serial_& message) {
+void Motors_C::move(Serial_C& message) {
 	this->updateDirectionAndSpeed(message);
 	this->triggerMotion();
 }
 
-void Motors_C::updateDirectionAndSpeed(Serial_ message) {
+void Motors_C::updateDirectionAndSpeed(Serial_C message) {
 	int id = message.getMotorId();
 
 	if(id != NULL)

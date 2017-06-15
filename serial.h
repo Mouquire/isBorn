@@ -5,7 +5,7 @@
 
 #include "_init.h"
 
-class Serial_C 
+class Serial_C
 
 {
 	public: 
@@ -19,6 +19,6 @@ class Serial_C
 	int motorId;
 	int speed;
 	void mapValues();
-}
+};
 
 #endif
