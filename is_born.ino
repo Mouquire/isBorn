@@ -3,10 +3,19 @@
 #include "motors.h"
 #include "serial.h"
 
-void setup() {
+Serial_C serial_;
+Motors_C motors_;
 
-} 
+void setup() {
+	Serial.begin(115200);
+
+	motors_.init();
+}
 
 void loop() {
-  
+	motors_.move();
+}
+
+void serialEvent() {
+	serial_.receive();
 }
