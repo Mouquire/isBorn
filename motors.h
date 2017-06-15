@@ -7,9 +7,7 @@
 #include "_init.h"
 #include "serial.h"
 
-typedef struct Motor_ 
-
-{
+typedef struct Motor_ {
 	const int FORWARD_PIN;
 	const int BACKWARD_PIN;
 	int speed;
@@ -25,11 +23,10 @@ class Motors_C {
 	public:
 		Motors_C();
 		void init();
-		void move(Serial_C& Serial_);
+		void move(Serial_C& serial_);
 
 	private:
 		Motor_ motor[10] = //Motor_ est un type de variable définis avec un structure dans le typedef 
-
 		{
 			Motor_(MOTOR0_FORWARD_PIN, MOTOR0_BACKWARD_PIN),
 			Motor_(MOTOR1_FORWARD_PIN, MOTOR1_BACKWARD_PIN),
@@ -43,7 +40,7 @@ class Motors_C {
 			Motor_(MOTOR9_FORWARD_PIN, MOTOR9_BACKWARD_PIN)
 		};
 		int motorIdToUpdate;
-		void updateDirectionAndSpeed(Serial_C message);
+		void updateSpeed(Serial_C serial_);
 		void triggerMotion();
 };
 

@@ -5,8 +5,6 @@ motorId(NULL),
 speed(0)
 {}
 
-
-
 void Serial_C::receive()
 
 {
@@ -62,4 +60,9 @@ int Serial_C::getMotorId()
 
 {
 	return this->motorId;
+}
+
+void Serial_C::clean() {
+	this->motorId = NULL;
+	this->speed = 0;
 }
