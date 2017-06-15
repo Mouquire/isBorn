@@ -43,7 +43,7 @@ class Motors_C {
 			Motor_(MOTOR9_FORWARD_PIN, MOTOR9_BACKWARD_PIN)
 		};
 		int motorIdToUpdate;
-		void updateDirectionAndSpeed(Serial_ message);
+		void updateDirectionAndSpeed(Serial_C message);
 		void triggerMotion();
 };
 
