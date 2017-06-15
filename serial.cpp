@@ -15,7 +15,7 @@ void Serial_C::receive()
 	if (message.indexOf("MAX") != -1) 
 
 	{
-		int motorIdIndex = message.index0f(' ') + 1;
+		int motorIdIndex = message.indexOf(' ') + 1;
 		int speedIndex = message.lastIndexOf(' ') + 1;
 		
 		this->motorId = message.substring(motorIdIndex, speedIndex - 1).toInt();
