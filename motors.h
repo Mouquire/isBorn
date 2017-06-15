@@ -25,7 +25,7 @@ class Motors_C {
 	public:
 		Motors_C();
 		void init();
-		void move(Serial_C& Serial_);
+		void move(Serial_C& serial);
 
 	private:
 		Motor_ motor[10] = //Motor_ est un type de variable définis avec un structure dans le typedef 
