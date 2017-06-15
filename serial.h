@@ -5,21 +5,20 @@
 
 #include "_init.h"
 
-
 class Serial_C 
 
 {
+	public: 
+	void receive();
+	Serial_C();
+	int getSpeed();
+	int getMotorId();
+	
+	private:
 
-public: 
-void receive();
-Serial_C();
-
-private:
-int motorNumber;
-int speed;
-void mapValues();
-
-
+	int motorId;
+	int speed;
+	void mapValues();
 }
 
 #endif

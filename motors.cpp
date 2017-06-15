@@ -22,7 +22,7 @@ void Motors_C::updateDirectionAndSpeed(Serial_ message) {
 		this->motor[id].speed = message.getSpeed();
 		message.clean();
 	}
-}
+
 
 void Motors_C::triggerMotion() {
 	int id = this->motorIdToUpdate;

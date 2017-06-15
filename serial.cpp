@@ -1,7 +1,7 @@
 #include "serial.h"
 
 Serial_C::Serial_C() :
-motorNumber(NULL), 
+motorId(NULL), 
 speed(0)
 {}
 
@@ -15,10 +15,10 @@ void Serial_C::receive()
 	if (message.indexOf("MAX") != -1) 
 
 	{
-		int motorNumberIndex = message.index0f(' ') + 1;
+		int motorIdIndex = message.index0f(' ') + 1;
 		int speedIndex = message.lastIndexOf(' ') + 1;
 		
-		this->motorNumber = message.substring(motorNumberIndex, speedIndex - 1).toInt();
+		this->motorId = message.substring(motorIdIndex, speedIndex - 1).toInt();
 		this->speed = message.substring(speedIndex).toInt();
 
 		this->mapValues();
@@ -40,15 +40,26 @@ void Serial_C::mapValues()
 
 	this->speed = map(this->speed, -100, -255, 100, 255);
 
-	if( this->motorNumber < 0 )
+	if( this->motorId < 0 )
 	{ 
-		this->motorNumber = 0;
+		this->motorId = 0;
 	}
 
-	else if(this->motorNumber > 9)
+	else if(this->motorId > 9)
 	{ 
-		this->motorNumber = 9 ;
+		this->motorId = 9 ;
 	}
 }
 
+int Serial_C::getSpeed()
 
+{
+	return this->speed;
+}
+
+
+int Serial_C::getMotorId()
+
+{
+	return this->motorId;
+}
