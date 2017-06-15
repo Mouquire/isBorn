@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop() {
-	motors_.move();
+	motors_.move(serial_);
 }
 
 void serialEvent() {

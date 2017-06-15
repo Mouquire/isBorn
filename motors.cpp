@@ -5,10 +5,7 @@ Motors_C::Motors_C() :
 	motorIdToUpdate(NULL)
 {}
 
-void Motors_C::init() 
-
-{
-
+void Motors_C::init() {
 	pinMode (MOTOR0_FORWARD_PIN, OUTPUT);
 	pinMode (MOTOR1_FORWARD_PIN, OUTPUT);
 	pinMode (MOTOR2_FORWARD_PIN, OUTPUT);
@@ -31,19 +28,20 @@ void Motors_C::init()
 	pinMode (MOTOR9_BACKWARD_PIN, OUTPUT);
 }
 
-void Motors_C::move(Serial_C& message) {
-	this->updateDirectionAndSpeed(message);
+void Motors_C::move(Serial_C& serial_) {
+	this->updateSpeed(serial_);
 	this->triggerMotion();
 }
 
-void Motors_C::updateDirectionAndSpeed(Serial_C message) {
-	int id = message.getMotorId();
+void Motors_C::updateSpeed(Serial_C serial_) {
+	int id = serial_.getMotorId();
 
-	if(id != NULL)
+	if(id != NULL) {
 		this->motorIdToUpdate = id;
-		this->motor[id].speed = message.getSpeed();
-		message.clean();
+		this->motor[id].speed = serial_.getSpeed();
+		serial_.clean();
 	}
+}
 
 
 void Motors_C::triggerMotion() {

@@ -13,9 +13,9 @@ class Serial_C
 	Serial_C();
 	int getSpeed();
 	int getMotorId();
+	void clean();
 	
 	private:
-
 	int motorId;
 	int speed;
 	void mapValues();
