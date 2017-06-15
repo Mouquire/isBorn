@@ -10,11 +10,12 @@
 typedef struct Motor_ {
 	const int FORWARD_PIN;
 	const int BACKWARD_PIN;
-	int speed = 0;
+	int speed;
 
 	Motor_(int forwardPin, int backwardPin) :
 		FORWARD_PIN(forwardPin),
-		BACKWARD_PIN(backwardPin)
+		BACKWARD_PIN(backwardPin),
+		speed(0)
 	{}
 };
 
