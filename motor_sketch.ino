@@ -1,7 +1,6 @@
 
 #include "motors.h"
 
-if
 
 void setup() {
 
