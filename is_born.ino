@@ -13,9 +13,9 @@ void setup() {
 }
 
 void loop() {
-	motors_.move(serial_);
-}
+	if (Serial.available()) {
+		serial_.receive();
+	}
 
-void serialEvent() {
-	serial_.receive();
+	motors_.move(serial_);
 }

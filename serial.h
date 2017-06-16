@@ -18,6 +18,7 @@ class Serial_C
 	private:
 	int motorId;
 	int speed;
+	String message;
 	void mapValues();
 };
 

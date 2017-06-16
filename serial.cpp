@@ -2,24 +2,29 @@
 
 Serial_C::Serial_C() :
 motorId(NULL), 
-speed(0)
+speed(0),
+message("")
 {}
 
 void Serial_C::receive()
-
 {
-	String message = Serial.readStringUntil('\n');
+	char charRead = Serial.read();
 
-	if (message.indexOf("MAX") != -1) 
+	if(charRead != '/') {
+		this->message += charRead;
+	} else {
+		if (this->message.indexOf("MAX") != -1) {
+			Serial.println("message : " + this->message);
+			int motorIdIndex = this->message.indexOf(' ') + 1;
+			int speedIndex = this->message.lastIndexOf(' ') + 1;
+			
+			this->motorId = this->message.substring(motorIdIndex, speedIndex - 1).toInt();
+			this->speed = this->message.substring(speedIndex).toInt();
 
-	{
-		int motorIdIndex = message.indexOf(' ') + 1;
-		int speedIndex = message.lastIndexOf(' ') + 1;
-		
-		this->motorId = message.substring(motorIdIndex, speedIndex - 1).toInt();
-		this->speed = message.substring(speedIndex).toInt();
+			this->message = "";
 
-		this->mapValues();
+			this->mapValues();
+		}
 	}
 }
 
