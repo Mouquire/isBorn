@@ -11,11 +11,19 @@ typedef struct Motor_ {
 	const int FORWARD_PIN;
 	const int BACKWARD_PIN;
 	int speed;
+	bool isSlow;
+	bool pulsed;
+	int pulseDuration;
+	long cacheTime;
 
 	Motor_(int forwardPin, int backwardPin) : //contructeur du typedef
 		FORWARD_PIN(forwardPin),
 		BACKWARD_PIN(backwardPin),
-		speed(0)
+		speed(0),
+		isSlow(false),
+		pulsed(false),
+		pulseDuration(0),
+		cacheTime(0)
 	{}
 };
 
@@ -26,7 +34,7 @@ class Motors_C {
 		void move(Serial_C& serial_);
 
 	private:
-		Motor_ motor[10] = //Motor_ est un type de variable définis avec un structure dans le typedef 
+		Motor_ motor[MOTOR_NUMBER] = //Motor_ est un type de variable définis avec un structure dans le typedef 
 		{
 			Motor_(MOTOR0_FORWARD_PIN, MOTOR0_BACKWARD_PIN),
 			Motor_(MOTOR1_FORWARD_PIN, MOTOR1_BACKWARD_PIN),

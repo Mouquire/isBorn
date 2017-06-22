@@ -7,6 +7,7 @@
 
 #define MIN_SPEED 100
 #define MAX_SPEED 255
+#define MOTOR_NUMBER 10
 
 
 // --------- PINS
